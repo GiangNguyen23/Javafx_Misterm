@@ -21,24 +21,6 @@ public class Comic {
         this.price = price;
     }
 
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//    public void setNameC(String nameC) {
-//        this.nameC = nameC;
-//    }
-//    public void setAuthor(String author) {
-//        this.author = author;
-//    }
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
-//    public void setPrice(double price) {
-//        this.price = price;
-//    }
-
-
     public int getId() {
         return id;
     }

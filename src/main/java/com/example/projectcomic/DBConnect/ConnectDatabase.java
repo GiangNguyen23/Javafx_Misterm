@@ -24,12 +24,6 @@ public class ConnectDatabase {
         try {
             ResultSet results = connection.prepareStatement(sql).executeQuery();
             while (results.next()){
-//                System.out.println("ID :   " + results.getInt("id"));
-//                System.out.println("Name Book:  " + results.getString("nameC"));
-//                System.out.println("Author : " + results.getString("author"));
-//                System.out.println("Quantity : " + results.getInt("quantity"));
-//                System.out.println("Price : " + results.getDouble("price"));
-
                 Comic book = new Comic(
                         results.getInt("id"),
                         results.getString("nameC"),
