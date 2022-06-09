@@ -45,7 +45,6 @@ public class ConnectDatabase {
         System.out.println(sql);
         try {
             connection.prepareStatement(sql).executeUpdate();
-//            System.out.println("Insert a new book");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

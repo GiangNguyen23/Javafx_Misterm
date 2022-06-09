@@ -16,18 +16,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class HelloApplication extends Application {
-
+public class ComicApplication extends Application {
     private static final String EMPTY = "";
     @Override
     public void start(Stage stage) throws IOException {
-
         GridPane root = new GridPane();
         ConnectDatabase connect = new ConnectDatabase();
         ArrayList<Comic> bookList = connect.getComic();
-        root.setPadding(new Insets(30));
-        root.setHgap(20);
-        root.setVgap(20);
 
         //Add
         root.add(new Label("Name Book:"), 0, 0);
@@ -47,7 +42,7 @@ public class HelloApplication extends Application {
         root.add(tfPrice, 3, 1);
 
         var btnAdd = new Button("Add");
-        btnAdd.setPadding(new Insets(5, 15, 5, 15));
+        btnAdd.setPadding(new Insets(4, 14, 4, 14));
         btnAdd.setOnAction(e -> {
             String nameC = tfNameC.getText();
             String author = tfAuthor.getText();
@@ -71,7 +66,6 @@ public class HelloApplication extends Application {
 
         //Display
         for(int i = 0; i < bookList.size(); i++){
-
             root.add(new Label (bookList.get(i).getNameC()), 0, i+2);
             root.add(new Label (bookList.get(i).getAuthor()), 1, i+2);
             root.add(new Label (" "+ bookList.get(i).getQuantity()), 2, i+2);
@@ -83,33 +77,32 @@ public class HelloApplication extends Application {
             btnUpdate.setId(String.valueOf(i));
             btnUpdate.setOnAction(e -> {
                 btnAdd.setVisible(false);
-                int idNew = Integer.parseInt(btnUpdate.getId());
+                int newId = Integer.parseInt(btnUpdate.getId());
 
                 TextField tfName = (TextField) root.getChildren().get(1);
-                tfName.setText("" + bookList.get(idNew).getNameC());
+                tfName.setText("" + bookList.get(newId).getNameC());
 
                 TextField tfAuthorC = (TextField) root.getChildren().get(3);
-                tfAuthorC.setText("" + bookList.get(idNew).getAuthor());
+                tfAuthorC.setText("" + bookList.get(newId).getAuthor());
 
                 TextField tfQuantityC = (TextField) root.getChildren().get(5);
-                tfQuantityC.setText("" + bookList.get(idNew).getQuantity());
+                tfQuantityC.setText("" + bookList.get(newId).getQuantity());
 
                 TextField tfPriceC = (TextField) root.getChildren().get(7);
-                tfPriceC.setText("" + bookList.get(idNew).getPrice());
+                tfPriceC.setText("" + bookList.get(newId).getPrice());
 
-                var btnAddNew = new Button("Update");
-                btnAddNew.setPadding(new Insets(5, 15, 5, 15));
+                var btnNewAdd = new Button("Update");
+                btnNewAdd.setPadding(new Insets(4, 14, 4, 14));
 
-                btnAddNew.setOnAction(actionEvent -> {
-                    Integer id_New = bookList.get(idNew).id;
-                    System.out.println(id_New);
-                    String nameCNew = tfName.getText();
-                    System.out.println(nameCNew);
-                    String authorNew = tfAuthorC.getText();
-                    Integer quantityNew = Integer.valueOf(tfQuantityC.getText());
-                    Double priceNew = Double.valueOf(tfPriceC.getText());
-                    if (!id_New.equals(EMPTY) && !nameCNew.equals(EMPTY) && !quantityNew.equals(EMPTY) && !priceNew.equals(EMPTY)) {
-                        connect.updateBook(new Comic(id_New, nameCNew, authorNew, quantityNew, priceNew));
+                btnNewAdd.setOnAction(actionEvent -> {
+                    Integer new_id = bookList.get(newId).id;
+                    String newNamC = tfName.getText();
+                    String newAuthor = tfAuthorC.getText();
+                    Integer newQuantity = Integer.valueOf(tfQuantityC.getText());
+                    Double newPrice = Double.valueOf(tfPriceC.getText());
+
+                    if (!new_id.equals(EMPTY) && !newNamC.equals(EMPTY) && !newAuthor.equals(EMPTY) && !newQuantity.equals(EMPTY) && !newPrice.equals(EMPTY)) {
+                        connect.updateBook(new Comic(new_id, newNamC, newAuthor, newQuantity, newPrice));
                         try {
                             start(stage);
                         } catch (Exception ex) {
@@ -122,7 +115,7 @@ public class HelloApplication extends Application {
                     alert.setContentText("Please fill all blank!");
                     alert.showAndWait();
                 });
-                root.add(btnAddNew, 4, 1);
+                root.add(btnNewAdd, 4, 1);
             });
             root.add(btnUpdate, 4, i+2);
 
@@ -147,6 +140,9 @@ public class HelloApplication extends Application {
         }
 
         Scene scene = new Scene(root);
+        root.setPadding(new Insets(30));
+        root.setHgap(20);
+        root.setVgap(20);
         stage.setTitle("Manage comic book");
         stage.setScene(scene);
         stage.show();
