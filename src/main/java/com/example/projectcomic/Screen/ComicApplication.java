@@ -1,4 +1,4 @@
-package com.example.projectcomic;
+package com.example.projectcomic.Screen;
 
 import com.example.projectcomic.DBConnect.ConnectDatabase;
 import com.example.projectcomic.model.Comic;

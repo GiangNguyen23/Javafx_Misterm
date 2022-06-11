@@ -5,4 +5,6 @@ module com.example.projectcomic {
 
     opens com.example.projectcomic to javafx.fxml;
     exports com.example.projectcomic;
+    exports com.example.projectcomic.Screen;
+    opens com.example.projectcomic.Screen to javafx.fxml;
 }
