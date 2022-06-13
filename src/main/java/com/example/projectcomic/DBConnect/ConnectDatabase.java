@@ -50,7 +50,7 @@ public class ConnectDatabase {
         }
     }
     public void updateBook(Comic book) {
-        String sql = " UPDATE ComicBookInfor SET nameC = '" + book.nameC + "', " +
+        String sql = "UPDATE ComicBookInfor SET nameC = '" + book.nameC + "', " +
                 "author = ' "+ book.author + " ', quantity = ' "+ book.quantity + "', price ='" +book.price + "' WHERE id =" + book.id ;
         System.out.println(sql);
         try {
