@@ -9,6 +9,8 @@
     + Thêm hình ảnh
     + Log in/ log out
     + Giỏ hàng
-- Ảnh chụp cấu trúc dự án[src/main/resources/cấu trúc dự án.PNG]
-- Ảnh chụp Entity Relationship Model[src/main/resources/Entity Relationship Model (ERM).PNG]
-- Đường link tới video demo[https://youtu.be/64lhpDwO_po]
+- Ảnh chụp cấu trúc dự án 
+![](src/main/resources/Project_structure.PNG)
+- Ảnh chụp Entity Relationship Model
+![](src/main/resources/Entity_Relationship_Model.PNG)
+- Đường link tới video demo (https://youtu.be/64lhpDwO_po)
